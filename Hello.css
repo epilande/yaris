@@ -1,0 +1,8 @@
+.color {
+  color: orange;
+}
+
+.base {
+  font-size: 2rem;
+  composes: color;
+}

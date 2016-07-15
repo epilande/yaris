@@ -6,8 +6,8 @@ import handleRender from '../build/server.js';
 const app = express();
 const PORT = 3000;
 
-app.use('/build', express.static(path.join(__dirname, 'build')));
 app.get('*', handleRender);
+app.use('/build', express.static(path.join(__dirname, '..', 'build')));
 
 app.listen(PORT, 'localhost', err => {
   if (err) {

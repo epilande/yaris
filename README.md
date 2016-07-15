@@ -1,6 +1,8 @@
 # YARIS
 **Yet Another React ~~Isomorphic~~ Universal Starter**
 
+If you don't want Universal JavaScript, check out my other boilerplate **[YARS](https://github.com/epilande/yars)**.
+
 ## Features
 * [ ] Universal Rendering
 * [X] Webpack
@@ -20,8 +22,8 @@
 #### Clone this repo
 
 ```bash
-$ git clone https://github.com/epilande/css-modules-server-rendering.git
-$ cd css-modules-server-rendering
+$ git clone https://github.com/epilande/yaris.git
+$ cd yaris
 ```
 
 #### Install dependencies

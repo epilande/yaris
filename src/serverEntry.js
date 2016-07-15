@@ -2,11 +2,11 @@
 import fs from 'fs';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Hello from './Hello.js';
+import App from './containers/App/App.js';
 
 function handleRender(req, res) {
   const html = ReactDOMServer.renderToString(
-    <Hello name="World" />
+    <App name="World" />
   );
   fs.readFile('./index.html', 'utf8', (err, file) => {
     if (err) {

@@ -4,12 +4,12 @@
 If you don't want Universal JavaScript, check out my other boilerplate **[YARS](https://github.com/epilande/yars)**.
 
 ## Features
-* [ ] Universal Rendering
+* [X] Universal Rendering
 * [X] Webpack
 * [X] React
 * [ ] React HMR
-* [ ] React Router + Server-side Rendering
-* [X] CSS Modules
+* [X] React Router
+* [ ] CSS Modules
 * [ ] PostCSS
 * [X] Babel
 * [X] ESLint

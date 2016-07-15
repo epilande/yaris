@@ -1,17 +1,42 @@
 /* eslint-disable no-console */
-import express from 'express';
+import fs from 'fs';
 import path from 'path';
-// import handleRender from '../build/server.js';
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { match, RouterContext } from 'react-router';
+import routes from './routes';
 
 const app = express();
 const PORT = 3000;
 
 app.use('/build', express.static(path.join(__dirname, '..', 'build')));
-// app.get('*', handleRender);
 
-// send all requests to index.html so browserHistory in React Router works
+function renderPage(html, callback) {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', (err, file) => {
+    if (err) {
+      return console.log(err);
+    }
+    const document = file.replace(/<div id="app"><\/div>/, `<div id="app">${html}</div>`);
+    return callback(document);
+  });
+}
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  match({ routes, location: req.url }, (err, redirect, props) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else if (redirect) {
+      res.redirect(redirect.pathname + redirect.search);
+    } else if (props) {
+      const appHtml = renderToString(<RouterContext {...props} />);
+      renderPage(appHtml, (document) => {
+        res.send(document);
+      });
+    } else {
+      res.status(404).send('Not Found');
+    }
+  });
 });
 
 app.listen(PORT, 'localhost', err => {

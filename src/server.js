@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import express from 'express';
 import path from 'path';
-import handleRender from './build/server.js';
+import handleRender from '../build/server.js';
 
 const app = express();
 const PORT = 3000;

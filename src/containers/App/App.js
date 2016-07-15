@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
-import styles from './Hello.css';
+import styles from './App.css';
 
-const Hello = ({ name }) => (
+const App = ({ name }) => (
   <div className={styles.base}>
     Hello {name}
   </div>
 );
 
-Hello.propTypes = {
+App.propTypes = {
   name: PropTypes.string,
 };
 
-export default Hello;
+export default App;

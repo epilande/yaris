@@ -1,9 +1,10 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const config = {
   target: 'node',
-  externals: [],
-  entry: ['./src/serverEntry.js'],
+  externals: [nodeExternals()],
+  entry: path.join(__dirname, 'src/server.js'),
   output: {
     path: path.join(__dirname, 'build/'),
     filename: 'server.js',

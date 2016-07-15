@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './containers/App/App.js';
+import { render } from 'react-dom';
+import { Router, hashHistory } from 'react-router';
+import routes from './routes';
 
-ReactDOM.render(
-  <App name="World" />,
+render(
+  <Router history={hashHistory} routes={routes} />,
   document.getElementById('app')
 );

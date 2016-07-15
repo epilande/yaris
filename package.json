@@ -1,18 +1,19 @@
 {
   "name": "css-modules-server-rendering",
   "version": "0.0.1",
-  "description": "",
+  "description": "Yet Another React Isomorphic Universal Starter",
   "main": "server.js",
   "scripts": {
     "start": "webpack && babel-node ./src/server.js"
   },
-  "author": "",
+  "author": "Emmanuel Pilande",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
     "path": "^0.12.7",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-router": "^2.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

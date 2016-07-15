@@ -1,13 +1,18 @@
 /* eslint-disable no-console */
 import express from 'express';
 import path from 'path';
-import handleRender from '../build/server.js';
+// import handleRender from '../build/server.js';
 
 const app = express();
 const PORT = 3000;
 
-app.get('*', handleRender);
 app.use('/build', express.static(path.join(__dirname, '..', 'build')));
+// app.get('*', handleRender);
+
+// send all requests to index.html so browserHistory in React Router works
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.listen(PORT, 'localhost', err => {
   if (err) {

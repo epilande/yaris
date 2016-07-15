@@ -3,6 +3,5 @@
 }
 
 .base {
-  font-size: 2rem;
   composes: color;
 }

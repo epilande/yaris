@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "webpack && babel-node server.js"
+    "start": "webpack && babel-node ./src/server.js"
   },
   "author": "",
   "license": "ISC",

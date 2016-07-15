@@ -3,11 +3,11 @@ const path = require('path');
 const config = {
   target: 'node',
   externals: [],
-  entry: ['./serverEntry.js'],
+  entry: ['./src/serverEntry.js'],
   output: {
     path: path.join(__dirname, 'build/'),
     filename: 'server.js',
-    publicPath: 'build/',
+    publicPath: '/build/',
     libraryTarget: 'commonjs2',
   },
   module: {

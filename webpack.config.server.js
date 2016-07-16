@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const WebpackIsomorphicTools = require('webpack-isomorphic-tools/plugin');
 
 const config = {
   target: 'node',
@@ -24,6 +25,9 @@ const config = {
       },
     ],
   },
+  plugins: [
+    new WebpackIsomorphicTools(require('./webpack.isomorphic.tools')).development(),
+  ],
   resolve: {
     root: __dirname,
   },

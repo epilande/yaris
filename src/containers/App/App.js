@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-// import styles from './App.css';
+import styles from './App.css';
 
 const App = ({ children }) => (
-  <div>
+  <div className={styles.base}>
     <ul>
       <li><Link to="/todo">Todo</Link></li>
       <li><Link to="/counter">Counter</Link></li>

@@ -7,5 +7,14 @@
     "node": true
   },
   "rules": {
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DEV__": true,
+    "webpackIsomorphicTools": true
   }
 }

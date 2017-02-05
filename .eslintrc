@@ -3,18 +3,21 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "mocha": true,
+    "jest": true,
     "node": true
   },
   "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.base.babel.js"
+      }
+    }
   },
   "plugins": [
-    "react"
-  ],
-  "globals": {
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__DEV__": true,
-    "webpackIsomorphicTools": true
-  }
+    "react", "import"
+  ]
 }

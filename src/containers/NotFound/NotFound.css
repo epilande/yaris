@@ -1,0 +1,11 @@
+.base {
+  composes: container from "styles/utils/layout.css";
+  text-align: center;
+}
+
+.heading {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}

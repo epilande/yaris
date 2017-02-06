@@ -1,13 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseConfig = require('./webpack.base.babel');
-
-// PostCSS
-const postcssImport = require('postcss-import');
-const postcssNested = require('postcss-nested');
-const cssnext = require('postcss-cssnext');
 
 const config = merge(baseConfig, {
   devtool: 'source-map',
@@ -18,31 +12,7 @@ const config = merge(baseConfig, {
     publicPath: '/',
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-        }),
-      },
-    ],
-  },
-
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: (webpackInstance) => [
-          postcssImport({
-            path: ['./src'],
-          }),
-          postcssNested,
-          cssnext({ browsers: ['last 2 versions', 'IE > 10'] }),
-        ],
-        context: __dirname,
-      },
-    }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -53,6 +23,11 @@ const config = merge(baseConfig, {
         comments: false,
       },
       sourceMap: false,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -71,13 +46,6 @@ const config = merge(baseConfig, {
       },
       inject: true,
     }),
-    new webpack.DefinePlugin({
-      __DEV__: false,
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-    new ExtractTextPlugin({ filename: 'styles.css', allChunks: true }),
   ],
 });
 

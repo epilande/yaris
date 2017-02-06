@@ -13,6 +13,13 @@ module.exports = {
         loader: 'json-loader',
       },
       {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
         test: /\.jpe?g$|\.gif$|\.png$/i,
         loader: 'url-loader?limit=10000',
       },

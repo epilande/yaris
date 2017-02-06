@@ -1,15 +1,104 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames/bind';
-import styles from './ListItem.css';
+import styled from 'styled-components';
 
-const cx = classNames.bind(styles);
+const RemoveButton = styled.button`
+  opacity: 0;
+  float: right;
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--secondary);
+    font-weight: 600;
+  }
+`;
+
+const Checkbox = styled.input``;
+
+const CheckboxWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+
+  ${Checkbox} {
+    margin-right: 1rem;
+    outline: 0;
+    border: 1px solid color(#433a5a alpha(25%));
+    border-radius: 1px;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    appearance: none;
+  }
+
+  &::after {
+    content: '\\2713';
+    position: absolute;
+    top: -0.25rem;
+    left: 0.0625rem;
+    opacity: 0;
+    color: color(#433a5a alpha(75%));
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+`;
+
+const InputText = styled.input`
+  width: calc(100% - 4rem);
+  display: inline-block;
+  outline: none;
+  letter-spacing: normal;
+`;
+
+const DisplayText = styled.div`
+  width: calc(100% - 4rem);
+  display: inline-block;
+  outline: none;
+  letter-spacing: normal;
+`;
+
+const Item = styled.li`
+  padding: 1rem;
+  border-bottom: 1px solid color(#433a5a alpha(25%));
+  background: #eef3f5;
+  color: #433a5a;
+
+  &:hover ${RemoveButton} {
+    opacity: 1;
+  }
+`;
+
+const CompletedItem = styled.div`
+  padding: 1rem;
+  border-bottom: 1px solid color(#433a5a alpha(25%));
+  background: #eef3f5;
+  color: #433a5a;
+
+  &:hover ${RemoveButton} {
+    opacity: 1;
+  }
+
+  ${DisplayText} {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  ${CheckboxWrapper} {
+    ${Checkbox} {
+      border-color: color(#433a5a alpha(40%));
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+`;
 
 class ListItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
-    onRemove: PropTypes.func,
-    onEdit: PropTypes.func,
-    onComplete: PropTypes.func,
+    onRemove: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onComplete: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -82,28 +171,26 @@ class ListItem extends Component {
     let checkBox;
     if (onComplete) {
       checkBox = (
-        <div
-          className={styles.checkbox}
+        <CheckboxWrapper
           onClick={this.onCheck}
         >
-          <input
+          <Checkbox
             defaultChecked={item.completed}
             type="checkbox"
           />
-        </div>
+        </CheckboxWrapper>
       );
     }
 
     let removeButton;
     if (onRemove) {
-      removeButton = <button className={styles.remove} onClick={this.onRemove}>X</button>;
+      removeButton = <RemoveButton onClick={this.onRemove}>X</RemoveButton>;
     }
 
     let text;
     if (editing) {
       text = (
-        <input
-          className={styles.itemText}
+        <InputText
           onBlur={this.onBlur}
           onChange={this.onChange}
           onKeyDown={this.onEnter}
@@ -114,21 +201,24 @@ class ListItem extends Component {
       );
     } else {
       text = (
-        <div className={styles.itemText} onClick={this.onTextClick}>
+        <DisplayText onClick={this.onTextClick}>
           {this.state.text}
-        </div>
+        </DisplayText>
       );
     }
 
-    const classes = cx({
-      item: true,
-      completed: item.completed,
-    });
+    if (item.completed) {
+      return (
+        <CompletedItem>
+          {checkBox}{text}{removeButton}
+        </CompletedItem>
+      );
+    }
 
     return (
-      <li className={classes}>
+      <Item>
         {checkBox}{text}{removeButton}
-      </li>
+      </Item>
     );
   }
 }

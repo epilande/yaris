@@ -2,7 +2,42 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { addItem, removeItem, editItem, completeItem, clearCompleted } from 'actions/todo';
 import List from 'components/List';
-import styles from './Todo.css';
+import styled from 'styled-components';
+
+const Base = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 768px;
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+  background: color(#fff alpha(20%));
+  padding: 1rem;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 1rem;
+  font-size: 1.125rem;
+  background: #eef3f5;
+  outline: 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+
+  &:focus {
+    border-color: #75d2d3;
+  }
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+
+  button:hover {
+    border-bottom: 1px solid #75d2d3;
+  }
+`;
 
 class Todo extends Component {
   static propTypes = {
@@ -63,31 +98,30 @@ class Todo extends Component {
     const completedCount = items.reduce((total, item) => (item.completed ? total + 1 : total), 0);
 
     return (
-      <div className={styles.base}>
-        <div className={styles.inputContainer}>
-          <input
-            className={styles.input}
+      <Base>
+        <InputContainer>
+          <Input
             placeholder="Enter new item"
             onChange={this.onInputChange}
             onKeyDown={this.onInputEnter}
             value={this.state.inputValue}
           />
-        </div>
+        </InputContainer>
         <List
           items={items}
           onRemove={this.onRemoveItem}
           onEdit={this.onEditItem}
           onComplete={this.onCompleteItem}
         />
-        <footer className={styles.footer}>
+        <Footer>
           <p>{count}</p>
           {
             completedCount
               ? <button onClick={this.onClearCompleted}>Clear Completed</button>
               : ''
           }
-        </footer>
-      </div>
+        </Footer>
+      </Base>
     );
   }
 }

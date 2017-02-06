@@ -6,7 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 // Important to have styles imported before routes
 // so app.css can be load before component styles
-import './styles/app.css';
+// import './styles/app.css';
 import routes from './routes';
 import configureStore from './store';
 
@@ -17,5 +17,5 @@ render(
   <Provider store={store}>
     <Router history={history} routes={routes} />
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

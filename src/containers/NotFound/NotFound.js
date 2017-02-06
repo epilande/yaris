@@ -1,10 +1,24 @@
 import React from 'react';
-import styles from './NotFound.css';
+import styled from 'styled-components';
+
+const Base = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 768px;
+  text-align: center;
+`;
+
+const H2 = styled.h2`
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+`;
 
 const NotFound = () => (
-  <div className={styles.base}>
-    <h2 className={styles.heading}>Page Not Found!</h2>
-  </div>
+  <Base>
+    <H2>Page Not Found!</H2>
+  </Base>
 );
 
 export default NotFound;

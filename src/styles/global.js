@@ -1,10 +1,11 @@
 import { injectGlobal } from 'styled-components';
 import { media } from './utils/breakpoint';
+import { colors, fonts } from './theme';
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html {
-    background: #312c47;
+    background: ${colors.gradient[1]};
     font-size: 12px;
 
     ${media.small`
@@ -17,7 +18,7 @@ injectGlobal`
   }
 
   ::selection {
-    background: #75d2d3;
+    background: ${colors.primary};
   }
 
   * {
@@ -28,9 +29,9 @@ injectGlobal`
 
   body {
     height: 100vh;
-    font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    background: linear-gradient(to bottom, #282140 0%, #312c47 100%);
-    color: #f6f4f9;
+    font-family: ${fonts.base};
+    background: linear-gradient(to bottom, ${colors.gradient[0]} 0%, ${colors.gradient[1]} 100%);
+    color: ${colors.white};
     overflow-y: hidden;
     letter-spacing: 0.1rem;
   }
@@ -41,27 +42,27 @@ injectGlobal`
   }
 
   h1 {
-    color: #f6f4f9;
+    color: ${colors.white};
     font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: 0.25rem;
   }
 
   input {
-    color: #433a5a;
+    color: ${colors.dark};
   }
 
   a {
     text-decoration: none;
-    color: #f6f4f9;
+    color: ${colors.white};
 
     &:hover,
     &:global(.active) {
-      border-bottom: 1px solid #75d2d3;
+      border-bottom: 1px solid ${colors.primary};
     }
 
     &:global(.active) {
-      color: #75d2d3;
+      color: ${colors.primary};
     }
   }
 `;

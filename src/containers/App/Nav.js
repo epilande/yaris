@@ -10,6 +10,11 @@ const Nav = styled.nav`
     margin: 0.5rem;
     display: inline-block;
   }
+
+  .active {
+    color: ${props => props.theme.colors.primary};
+    border-bottom: 1px solid ${props => props.theme.colors.primary};
+  }
 `;
 
 export default Nav;

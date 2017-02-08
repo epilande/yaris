@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { increment, decrement, incrementIfOdd, incrementAsync } from 'actions/counter';
+import Container from 'components/Container';
 import Animating from './Animating';
-import Base from './Base';
 import Button from './Button';
 import CircleButton from './CircleButton';
 
@@ -48,13 +48,13 @@ class Counter extends Component {
   render() {
     const { counter } = this.props;
 
-    let Wrapper = Base;
+    let Wrapper = Container;
     if (this.state.animating) {
       Wrapper = Animating;
     }
 
     return (
-      <Wrapper>
+      <Wrapper center>
         <CircleButton
           onClick={this.increment}
           onMouseUp={this.animationDone}

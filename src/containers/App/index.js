@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router/es';
-import Wrapper from './Wrapper';
+import Container from 'components/Container';
 import Header from './Header';
 import Nav from './Nav';
 import Example from './Example';
 
 const App = ({ children }) => (
-  <Wrapper>
+  <Container>
     <Header>
       <h1>YARS</h1>
       <p>Yet Another React Starter</p>
@@ -20,7 +20,7 @@ const App = ({ children }) => (
     <Example>
       {children}
     </Example>
-  </Wrapper>
+  </Container>
 );
 
 App.propTypes = {

@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { addItem, removeItem, editItem, completeItem, clearCompleted } from 'actions/todo';
+import Container from 'components/Container';
 import List from 'components/List';
-import Input from './Input';
+import Input from 'components/Input';
 import InputContainer from './InputContainer';
-import Wrapper from './Wrapper';
 import Footer from './Footer';
 
 class Todo extends Component {
@@ -66,7 +66,7 @@ class Todo extends Component {
     const completedCount = items.reduce((total, item) => (item.completed ? total + 1 : total), 0);
 
     return (
-      <Wrapper>
+      <Container>
         <InputContainer>
           <Input
             placeholder="Enter new item"
@@ -89,7 +89,7 @@ class Todo extends Component {
               : ''
           }
         </Footer>
-      </Wrapper>
+      </Container>
     );
   }
 }

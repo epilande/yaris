@@ -3,7 +3,7 @@ export const colors = {
   secondary: '#b54d4e',
   lite: '#e7dee9',
   dark: '#433a5a',
-  white: '#f6f4f9',
+  white: ['#fff', '#f6f4f9', '#eef3f5'],
   black: '#000',
   gradient: ['#282140', '#312c47'],
 };

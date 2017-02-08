@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addItem, removeItem, editItem, completeItem, clearCompleted } from 'actions/todo';
 import List from 'components/List';
 import styled from 'styled-components';
+import { hexToRgba } from 'styles/utils/color';
 
 const Base = styled.div`
   margin: 0 auto;
@@ -12,7 +13,7 @@ const Base = styled.div`
 
 const InputContainer = styled.div`
   position: relative;
-  background: color(#fff alpha(20%));
+  background: ${props => hexToRgba(props.theme.colors.white[0], 0.2)};
   padding: 1rem;
 `;
 
@@ -20,13 +21,13 @@ const Input = styled.input`
   width: 100%;
   padding: 0.5rem 2.2rem 0.5rem 1rem;
   font-size: 1.125rem;
-  background: #eef3f5;
+  background: ${props => props.theme.colors.white[2]};
   outline: 0;
   border: 1px solid transparent;
   border-radius: 2px;
 
   &:focus {
-    border-color: #75d2d3;
+    border-color: ${props => props.theme.colors.primary};
   }
 `;
 
@@ -35,7 +36,7 @@ const Footer = styled.footer`
   justify-content: space-between;
 
   button:hover {
-    border-bottom: 1px solid #75d2d3;
+    border-bottom: 1px solid ${props => props.theme.colors.primary};
   }
 `;
 

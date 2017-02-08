@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router/es';
 import styled from 'styled-components';
+import { hexToRgba } from 'styles/utils/color';
 
 const Base = styled.div`
   margin: 0 auto;
@@ -35,8 +36,8 @@ const Example = styled.div`
   padding: 1.5rem;
   width: 100%;
   height: calc(100vh - 250px);
-  background: #433a5a;
-  box-shadow: 0 1rem 2.5rem 0 color(#000 alpha(20%));
+  background: ${props => props.theme.colors.dark};
+  box-shadow: 0 1rem 2.5rem 0 ${props => hexToRgba(props.theme.colors.black, 0.2)};
 `;
 
 const App = ({ children }) => (

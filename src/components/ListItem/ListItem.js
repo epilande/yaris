@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
+import { hexToRgba } from 'styles/utils/color';
 
 const RemoveButton = styled.button`
   opacity: 0;
@@ -8,21 +9,19 @@ const RemoveButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: var(--secondary);
+    color: ${props => props.theme.colors.secondary};
     font-weight: 600;
   }
 `;
-
-const Checkbox = styled.input``;
 
 const CheckboxWrapper = styled.div`
   position: relative;
   display: inline-block;
 
-  ${Checkbox} {
+  input {
     margin-right: 1rem;
     outline: 0;
-    border: 1px solid color(#433a5a alpha(25%));
+    border: 1px solid ${props => hexToRgba(props.theme.colors.dark, 0.25)};
     border-radius: 1px;
     width: 1rem;
     height: 1rem;
@@ -36,7 +35,7 @@ const CheckboxWrapper = styled.div`
     top: -0.25rem;
     left: 0.0625rem;
     opacity: 0;
-    color: color(#433a5a alpha(75%));
+    color:  ${props => hexToRgba(props.theme.colors.dark, 0.75)};
     font-size: 1.3rem;
     cursor: pointer;
   }
@@ -58,9 +57,9 @@ const DisplayText = styled.div`
 
 const Item = styled.li`
   padding: 1rem;
-  border-bottom: 1px solid color(#433a5a alpha(25%));
-  background: #eef3f5;
-  color: #433a5a;
+  border-bottom: 1px solid ${props => hexToRgba(props.theme.colors.dark, 0.25)};
+  background: ${props => props.theme.colors.white[2]};
+  color: ${props => props.theme.colors.dark};
 
   &:hover ${RemoveButton} {
     opacity: 1;
@@ -69,9 +68,9 @@ const Item = styled.li`
 
 const CompletedItem = styled.div`
   padding: 1rem;
-  border-bottom: 1px solid color(#433a5a alpha(25%));
-  background: #eef3f5;
-  color: #433a5a;
+  border-bottom: 1px solid ${props => hexToRgba(props.theme.colors.dark, 0.25)};
+  background: ${props => props.theme.colors.white[2]};
+  color: ${props => props.theme.colors.dark};
 
   &:hover ${RemoveButton} {
     opacity: 1;
@@ -83,8 +82,8 @@ const CompletedItem = styled.div`
   }
 
   ${CheckboxWrapper} {
-    ${Checkbox} {
-      border-color: color(#433a5a alpha(40%));
+    input {
+      border-color: ${props => hexToRgba(props.theme.colors.dark, 0.4)}
     }
 
     &::after {
@@ -174,7 +173,7 @@ class ListItem extends Component {
         <CheckboxWrapper
           onClick={this.onCheck}
         >
-          <Checkbox
+          <input
             defaultChecked={item.completed}
             type="checkbox"
           />

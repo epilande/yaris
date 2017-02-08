@@ -31,7 +31,7 @@ injectGlobal`
     height: 100vh;
     font-family: ${fonts.base};
     background: linear-gradient(to bottom, ${colors.gradient[0]} 0%, ${colors.gradient[1]} 100%);
-    color: ${colors.white};
+    color: ${colors.white[1]};
     overflow-y: hidden;
     letter-spacing: 0.1rem;
   }
@@ -42,7 +42,7 @@ injectGlobal`
   }
 
   h1 {
-    color: ${colors.white};
+    color: ${colors.white[1]};
     font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: 0.25rem;
@@ -54,7 +54,7 @@ injectGlobal`
 
   a {
     text-decoration: none;
-    color: ${colors.white};
+    color: ${colors.white[1]};
 
     &:hover,
     &:global(.active) {

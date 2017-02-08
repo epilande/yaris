@@ -3,7 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router/es';
 import { syncHistoryWithStore } from 'react-router-redux';
+import { ThemeProvider } from 'styled-components';
 import 'sanitize.css/sanitize.css';
+import theme from './styles/theme';
 import './styles/global';
 import routes from './routes';
 import configureStore from './store';
@@ -13,7 +15,9 @@ const history = syncHistoryWithStore(hashHistory, store);
 
 render(
   <Provider store={store}>
-    <Router history={history} routes={routes} />
+    <ThemeProvider theme={theme}>
+      <Router history={history} routes={routes} />
+    </ThemeProvider>
   </Provider>,
   document.getElementById('app'),
 );

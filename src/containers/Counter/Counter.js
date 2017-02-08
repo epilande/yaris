@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { increment, decrement, incrementIfOdd, incrementAsync } from 'actions/counter';
 import styled, { keyframes } from 'styled-components';
+import { hexToRgba } from 'styles/utils/color';
 
 const ripple = keyframes`
   0% {
@@ -37,18 +38,19 @@ const pulse = keyframes`
   }
 `;
 
-const Animating = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  max-width: 768px;
-  text-align: center;
-`;
+const Actions = styled.div`
+  button {
+    margin: 0.5rem;
+    padding: 0.25rem 0.8rem;
+    border: 1px solid ${props => props.theme.colors.primary};
+    border-radius: 2px;
+    color: ${props => props.theme.colors.primary};
+    font-weight: 300;
 
-const Base = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  max-width: 768px;
-  text-align: center;
+    &:hover {
+      background: ${props => hexToRgba(props.theme.colors.primary, 0.1)};
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -60,11 +62,7 @@ const Button = styled.button`
   margin-bottom: 3.5rem;
   font-size: 2rem;
   border-radius: 50%;
-  background: var(--primary);
-
-  ${Animating} & {
-    animation: ${pulse} 0.5s ease-out forwards;
-  }
+  background: ${props => props.theme.colors.primary};
 
   span {
     position: relative;
@@ -82,33 +80,32 @@ const Button = styled.button`
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0.5);
   }
-
-  &::before {
-    ${Animating} & {
-      background: color(var(--primary) alpha(30%));
-      animation: ${ripple} 0.8s cubic-bezier(0.2, 0.7, 0.4, 1) 0.2s forwards;
-    }
-  }
-
-  &::after {
-    ${Animating} & {
-      background: color(var(--primary) alpha(70%));
-      animation: ${ripple} 0.8s cubic-bezier(0.2, 0.7, 0.4, 1) 0.5s forwards;
-    }
-  }
 `;
 
-const Actions = styled.div`
-  button {
-    margin: 0.5rem;
-    padding: 0.25rem 0.8rem;
-    border: 1px solid var(--primary);
-    border-radius: 2px;
-    color: var(--primary);
-    font-weight: 300;
+const Base = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 768px;
+  text-align: center;
+`;
 
-    &:hover {
-      background: color(var(--white) alpha(10%));
+const Animating = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 768px;
+  text-align: center;
+
+  ${Button} {
+    animation: ${pulse} 0.5s ease-out forwards;
+
+    &::before {
+      background: ${props => hexToRgba(props.theme.colors.primary, 0.3)};
+      animation: ${ripple} 0.8s 0.2s forwards;
+    }
+
+    &::after {
+      background: ${props => hexToRgba(props.theme.colors.primary, 0.7)};
+      animation: ${ripple} 0.8s 0.5s forwards;
     }
   }
 `;

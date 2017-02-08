@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { increment, decrement, incrementIfOdd, incrementAsync } from 'actions/counter';
 import Container from 'components/Container';
+import { increment, decrement, incrementIfOdd, incrementAsync } from './actions';
 import Animating from './Animating';
 import Button from './Button';
 import CircleButton from './CircleButton';

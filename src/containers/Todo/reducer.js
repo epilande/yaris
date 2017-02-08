@@ -4,7 +4,7 @@ import {
   EDIT_ITEM,
   COMPLETE_ITEM,
   CLEAR_COMPLETED,
-} from 'actions/todo';
+} from './constants';
 
 const initialState = {
   items: [],

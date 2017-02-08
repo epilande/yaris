@@ -1,5 +1,0 @@
-/* Screen sizes */
-@custom-media --bp-small screen and (min-width: 35.5em); /* 568px */
-@custom-media --bp-medium screen and (min-width: 48em); /* 768px */
-@custom-media --bp-large screen and (min-width: 64em); /* 1024px */
-@custom-media --bp-xlarge screen and (min-width: 80em); /* 1280px */

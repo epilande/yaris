@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { increment, decrement, incrementIfOdd, incrementAsync } from 'actions/counter';
-import Actions from './Actions';
 import Animating from './Animating';
 import Base from './Base';
 import Button from './Button';
+import CircleButton from './CircleButton';
 
 class Counter extends Component {
   static propTypes = {
@@ -55,18 +55,18 @@ class Counter extends Component {
 
     return (
       <Wrapper>
-        <Button
+        <CircleButton
           onClick={this.increment}
           onMouseUp={this.animationDone}
         >
           <span>{counter}</span>
-        </Button>
-        <Actions>
-          <button onClick={this.increment} onMouseUp={this.animationDone}> + </button>
-          <button onClick={this.decrement}> – </button>
-          <button onClick={this.incrementIfOdd}> odd </button>
-          <button onClick={this.incrementAsync}> async </button>
-        </Actions>
+        </CircleButton>
+        <div>
+          <Button onClick={this.increment} onMouseUp={this.animationDone}> + </Button>
+          <Button onClick={this.decrement}> – </Button>
+          <Button onClick={this.incrementIfOdd}> odd </Button>
+          <Button onClick={this.incrementAsync}> async </Button>
+        </div>
       </Wrapper>
     );
   }

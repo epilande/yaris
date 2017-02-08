@@ -1,31 +1,16 @@
 import styled from 'styled-components';
+import { hexToRgba } from 'styles/utils/color';
 
 const Button = styled.button`
-  position: relative;
-  display: inline-block;
-  width: 5.5rem;
-  height: 5.5rem;
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
-  font-size: 2rem;
-  border-radius: 50%;
-  background: ${props => props.theme.colors.primary};
+  margin: 0.5rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid ${props => props.theme.colors.primary};
+  border-radius: 2px;
+  color: ${props => props.theme.colors.primary};
+  font-weight: 300;
 
-  span {
-    position: relative;
-    z-index: 1;
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
+  &:hover {
+    background: ${props => hexToRgba(props.theme.colors.primary, 0.1)};
   }
 `;
 

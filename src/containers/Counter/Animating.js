@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { hexToRgba } from 'styles/utils/color';
 import { ripple, pulse } from 'styles/utils/animation';
-import Button from './Button';
+import CircleButton from './CircleButton';
 
 const Animating = styled.div`
   margin: 0 auto;
@@ -9,7 +9,7 @@ const Animating = styled.div`
   max-width: 768px;
   text-align: center;
 
-  ${Button} {
+  ${CircleButton} {
     animation: ${pulse} 0.5s ease-out forwards;
 
     &::before {

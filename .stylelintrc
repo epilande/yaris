@@ -1,19 +1,11 @@
 {
+  "processors": ["stylelint-processor-styled-components"],
   "extends": "stylelint-config-standard",
   "ignoreFiles": ["node_modules/**/*.css"],
   "rules": {
-    "selector-pseudo-class-no-unknown": [true, {
-      "ignorePseudoClasses": [
-        "export",
-        "import",
-        "global",
-        "local"
-      ]
-    }],
-    "property-no-unknown": [ true, {
-      "ignoreProperties": [
-        "composes"
-      ]
-    }]
-  }
+    "at-rule-empty-line-before": null,
+    "selector-type-case": null,
+    "selector-type-no-unknown": null
+  },
+  "syntax": "scss"
 }

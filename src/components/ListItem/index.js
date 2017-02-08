@@ -8,7 +8,9 @@ import CompletedItem from './CompletedItem';
 
 class ListItem extends Component {
   static propTypes = {
-    item: PropTypes.object.isRequired,
+    item: PropTypes.shape({
+      text: PropTypes.string,
+    }).isRequired,
     onRemove: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
     onComplete: PropTypes.func.isRequired,
@@ -22,7 +24,6 @@ class ListItem extends Component {
     this.onCheck = this.onCheck.bind(this);
     this.onRemove = this.onRemove.bind(this);
     this.onBlur = this.onBlur.bind(this);
-    this.onFocus = this.onFocus.bind(this);
     this.state = {
       editing: false,
       text: props.item.text || '',
@@ -58,10 +59,6 @@ class ListItem extends Component {
 
   onBlur() {
     this.handleSave();
-  }
-
-  onFocus(event) {
-    event.target.select();
   }
 
   handleSave() {
@@ -107,7 +104,7 @@ class ListItem extends Component {
           onBlur={this.onBlur}
           onChange={this.onChange}
           onKeyDown={this.onEnter}
-          onFocus={this.onFocus}
+          onFocus={event => event.target.select()}
           value={this.state.text}
           autoFocus
         />

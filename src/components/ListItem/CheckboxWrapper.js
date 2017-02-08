@@ -22,7 +22,7 @@ const CheckboxWrapper = styled.div`
     top: -0.25rem;
     left: 0.0625rem;
     opacity: 0;
-    color:  ${props => hexToRgba(props.theme.colors.dark, 0.75)};
+    color: ${props => hexToRgba(props.theme.colors.dark, 0.75)};
     font-size: 1.3rem;
     cursor: pointer;
   }

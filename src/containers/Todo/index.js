@@ -9,7 +9,9 @@ import { addItem, removeItem, editItem, completeItem, clearCompleted } from './a
 
 class Todo extends Component {
   static propTypes = {
-    todo: PropTypes.object.isRequired,
+    todo: PropTypes.shape({
+      items: PropTypes.array,
+    }).isRequired,
     dispatch: PropTypes.func.isRequired,
   };
 

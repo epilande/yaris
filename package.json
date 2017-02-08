@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint ./src/**/*.js",
-    "lint:css": "stylelint ./src/**/*.css",
+    "lint:js": "eslint \"./src/**/*.js\"",
+    "lint:css": "stylelint \"./src/**/*.js\"",
     "clean": "rimraf dist",
     "dev": "webpack-dev-server --config webpack.dev.babel.js",
     "prod": "NODE_ENV=production webpack --config webpack.prod.babel.js"
@@ -51,6 +51,7 @@
     "style-loader": "^0.13.1",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-styled-components": "^0.0.4",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",

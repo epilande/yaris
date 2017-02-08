@@ -21,7 +21,7 @@ const CompletedItem = styled.div`
 
   ${CheckboxWrapper} {
     input {
-      border-color: ${props => hexToRgba(props.theme.colors.dark, 0.4)}
+      border-color: ${props => hexToRgba(props.theme.colors.dark, 0.4)};
     }
 
     &::after {

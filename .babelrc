@@ -2,6 +2,7 @@
   "presets": [["es2015", {"modules": false}], "stage-0", "react"],
   "env": {
     "development": {
+      "presets": ["react-hmre"],
       "plugins": ["styled-components"]
     }
   }

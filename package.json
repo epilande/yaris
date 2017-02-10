@@ -9,7 +9,9 @@
     "lint:css": "stylelint \"./src/**/*.js\"",
     "clean": "rimraf dist",
     "dev": "webpack-dev-server --config webpack.dev.babel.js",
-    "prod": "NODE_ENV=production webpack --config webpack.prod.babel.js"
+    "prod": "NODE_ENV=production webpack --config webpack.prod.babel.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build:storybook": "build-storybook -c .storybook"
   },
   "engines": {
     "node": ">= 6.x",
@@ -30,6 +32,7 @@
     "styled-components": "next"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",

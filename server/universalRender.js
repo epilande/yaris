@@ -15,6 +15,7 @@ const renderFullPage = (html, initialState) => (
       <head>
         <title>Yet Another React Isomorphic Starter</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
       <body>
       <div id="root"><div>${html}</div></div>

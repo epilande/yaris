@@ -8,7 +8,7 @@
     "lint:js": "eslint \"./src/**/*.js\"",
     "lint:css": "stylelint \"./src/**/*.js\"",
     "clean": "rimraf public",
-    "dev": "NODE_ENV=development node server/index.js",
+    "dev": "BABEL_ENV=node NODE_ENV=development node server/index.js",
     "start": "NODE_ENV=production node public/server.js",
     "build": "npm run clean && npm run build:prod && npm run build:server",
     "build:prod": "NODE_ENV=production webpack --progress --colors --config webpack.prod.babel.js",

@@ -15,24 +15,6 @@ const config = merge(baseConfig, {
     publicPath: 'http://0.0.0.0:3000/',
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [['es2015', { modules: false }], 'stage-0', 'react', 'react-hmre'],
-              plugins: ['styled-components'],
-            },
-          },
-        ],
-      },
-    ],
-  },
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

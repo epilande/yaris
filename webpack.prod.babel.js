@@ -11,23 +11,6 @@ const config = merge(baseConfig, {
     publicPath: '/',
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [['es2015', { modules: false }], 'stage-0', 'react'],
-            },
-          },
-        ],
-      },
-    ],
-  },
-
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({

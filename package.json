@@ -24,7 +24,6 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.16.1",
-    "classnames": "^2.2.5",
     "compression": "^1.6.2",
     "express": "^4.14.1",
     "react": "^15.4.2",
@@ -57,7 +56,6 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "file-loader": "^0.10.0",
-    "html-webpack-plugin": "^2.28.0",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "stylelint": "^7.8.0",
@@ -66,7 +64,6 @@
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
-    "webpack-dev-server": "^2.3.0",
     "webpack-hot-middleware": "^2.16.1",
     "webpack-merge": "^2.6.1",
     "webpack-node-externals": "^1.5.4"

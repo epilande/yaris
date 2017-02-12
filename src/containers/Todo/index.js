@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Container from 'components/Container';
-import List from 'components/List';
-import Input from 'components/Input';
+import Container from '../../components/Container';
+import List from '../../components/List';
+import Input from '../../components/Input';
 import InputContainer from './InputContainer';
 import Footer from './Footer';
 import { addItem, removeItem, editItem, completeItem, clearCompleted } from './actions';

@@ -1,4 +1,12 @@
-import App from 'containers/App';
+import App from './containers/App';
+
+/* eslint-disable */
+if (typeof System === 'undefined') {
+  var System = {
+    import: path => (Promise.resolve(require(path))),
+  };
+}
+/* eslint-enable */
 
 function errorLoading(err) {
   console.log('Page failed to load. ', err); // eslint-disable-line
@@ -16,7 +24,7 @@ export default {
     {
       path: 'todo',
       getComponent(location, cb) {
-        System.import('containers/Todo')
+        System.import('./containers/Todo') // eslint-disable-line
           .then(loadRoute(cb))
           .catch(errorLoading);
       },
@@ -24,7 +32,7 @@ export default {
     {
       path: 'counter',
       getComponent(location, cb) {
-        System.import('containers/Counter')
+        System.import('./containers/Counter') // eslint-disable-line
           .then(loadRoute(cb))
           .catch(errorLoading);
       },
@@ -32,7 +40,7 @@ export default {
     {
       path: '*',
       getComponent(location, cb) {
-        System.import('containers/NotFound')
+        System.import('./containers/NotFound') // eslint-disable-line
           .then(loadRoute(cb))
           .catch(errorLoading);
       },

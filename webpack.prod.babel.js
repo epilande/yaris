@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base.babel');
 
 const config = merge(baseConfig, {
@@ -10,6 +9,23 @@ const config = merge(baseConfig, {
 
   output: {
     publicPath: '/',
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
@@ -28,23 +44,6 @@ const config = merge(baseConfig, {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      favicon: 'src/assets/favicon.ico',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-      inject: true,
     }),
   ],
 });

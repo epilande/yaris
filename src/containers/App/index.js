@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router/es';
-import Container from 'components/Container';
+import { Link } from 'react-router';
+import Container from '../../components/Container';
 import Header from './Header';
 import Nav from './Nav';
 import Example from './Example';

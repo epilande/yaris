@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { hexToRgba } from 'styles/utils/color';
-import { ripple, pulse } from 'styles/utils/animation';
+import { hexToRgba } from '../../styles/utils/color';
+import { ripple, pulse } from '../../styles/utils/animation';
 import CircleButton from './CircleButton';
 
 const Animating = styled.div`

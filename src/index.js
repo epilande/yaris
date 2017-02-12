@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, hashHistory } from 'react-router/es';
+import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { ThemeProvider } from 'styled-components';
 import 'sanitize.css/sanitize.css';
@@ -10,8 +10,8 @@ import './styles/global';
 import routes from './routes';
 import configureStore from './store';
 
-const store = configureStore();
-const history = syncHistoryWithStore(hashHistory, store);
+const store = configureStore(window.__INITIAL_STATE__); // eslint-disable-line
+const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <Provider store={store}>
@@ -19,5 +19,5 @@ render(
       <Router history={history} routes={routes} />
     </ThemeProvider>
   </Provider>,
-  document.getElementById('app'),
+  document.getElementById('root'),
 );

@@ -1,35 +1,46 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base.babel');
 
 const config = merge(baseConfig, {
   devtool: 'eval',
 
-  entry: './src/index',
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    'webpack/hot/only-dev-server',
+    './src/index',
+  ],
 
   output: {
-    publicPath: '/',
+    publicPath: 'http://0.0.0.0:3000/',
   },
 
-  devServer: {
-    hot: true,
-    inline: true,
-    contentBase: './dist',
-    stats: { colors: true },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [['es2015', { modules: false }], 'stage-0', 'react', 'react-hmre'],
+              plugins: ['styled-components'],
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
+        CLIENT: JSON.stringify(true),
         NODE_ENV: JSON.stringify('development'),
       },
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      favicon: 'src/assets/favicon.ico',
-      inject: true,
     }),
   ],
 });

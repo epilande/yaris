@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hexToRgba } from 'styles/utils/color';
+import { hexToRgba } from '../../styles/utils/color';
 
 const InputContainer = styled.div`
   position: relative;

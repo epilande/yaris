@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hexToRgba } from 'styles/utils/color';
+import { hexToRgba } from '../../styles/utils/color';
 import RemoveButton from './RemoveButton';
 
 const Item = styled.li`

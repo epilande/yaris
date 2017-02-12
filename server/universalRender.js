@@ -2,20 +2,26 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
+import Helmet from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 import theme from '../src/styles/theme';
 import configureStore from '../src/store';
 import routes from '../src/routes';
 
 // Render Initial HTML
-const renderFullPage = (html, initialState) => (
-  `
+const renderFullPage = (html, initialState) => {
+  const head = Helmet.rewind();
+
+  return `
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Yet Another React Isomorphic Starter</title>
+        ${head.base.toString()}
+        ${head.title.toString()}
+        ${head.meta.toString()}
+        ${head.link.toString()}
+        ${head.script.toString()}
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
       <body>
       <div id="root"><div>${html}</div></div>
@@ -25,8 +31,8 @@ const renderFullPage = (html, initialState) => (
         <script src="/bundle.js"></script>
       </body>
     </html>
-  `
-);
+  `;
+};
 
 const renderError = (err) => {
   const softTab = '&#32;&#32;&#32;&#32;';

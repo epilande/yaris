@@ -10,6 +10,8 @@ import './styles/global';
 import routes from './routes';
 import configureStore from './store';
 
+import '!file-loader?name=[name].[ext]!./assets/favicon.ico'; // eslint-disable-line
+
 const store = configureStore(window.__INITIAL_STATE__); // eslint-disable-line
 const history = syncHistoryWithStore(browserHistory, store);
 

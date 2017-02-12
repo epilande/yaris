@@ -9,10 +9,12 @@ import routes from '../src/routes';
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => (
-  `<!DOCTYPE html>
+  `
+    <!DOCTYPE html>
     <html>
       <head>
         <title>Yet Another React Isomorphic Starter</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body>
       <div id="root"><div>${html}</div></div>

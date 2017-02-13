@@ -28,7 +28,8 @@ const renderFullPage = (html, initialState) => {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
         </script>
-        <script src="/bundle.js"></script>
+        <script src="/vendor.js"></script>
+        <script src="/app.js"></script>
       </body>
     </html>
   `;

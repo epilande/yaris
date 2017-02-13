@@ -5,7 +5,15 @@ const baseConfig = require('./webpack.base.babel');
 const config = merge(baseConfig, {
   devtool: 'source-map',
 
-  entry: './src/index',
+  entry: {
+    app: [
+      './src/index',
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+    ],
+  },
 
   output: {
     publicPath: '/',
@@ -22,6 +30,11 @@ const config = merge(baseConfig, {
         comments: false,
       },
       sourceMap: false,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+      filename: 'vendor.js',
     }),
     new webpack.DefinePlugin({
       'process.env': {

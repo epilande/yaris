@@ -23,8 +23,8 @@ const App = ({ children }) => (
       ]}
     />
     <Header>
-      <h1>YARS</h1>
-      <p>Yet Another React Starter</p>
+      <h1>YARIS</h1>
+      <p>Yet Another React Isomorphic Starter</p>
     </Header>
     <Nav>
       <ul>

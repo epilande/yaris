@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '6'
+script:
+  - yarn run test
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+cache:
+  yarn: true
+  directories:
+    - node_modules

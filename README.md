@@ -4,18 +4,19 @@
 If you don't want Universal JavaScript, check out my other boilerplate **[YARS](https://github.com/epilande/yars)**.
 
 ## Features
-* [X] Universal Rendering
-* [X] Webpack
-* [X] React
-* [ ] React HMR
-* [X] React Router
-* [ ] CSS Modules
-* [ ] PostCSS
-* [X] Babel
-* [X] ESLint
-* [ ] Stylelint
-* [X] NPM Scripts
-
+- [X] Server-Side Rendering
+- [X] Webpack v2
+- [X] React
+- [X] React HMR
+- [X] React Redux
+- [X] React Router (async routes)
+- [X] React storybook
+- [X] Babel
+- [X] Styled-components
+- [X] Jest and Enzyme
+- [X] ESLint
+- [X] Stylelint
+- [X] NPM Scripts
 
 ## Quick Start
 
@@ -32,9 +33,21 @@ $ cd yaris
 $ npm install
 ```
 
-#### Launch client & server
+#### Launch dev environment
 
 ```bash
-$ npm start
+$ npm run dev
+```
+
+#### Build prod
+
+```bash
+$ npm run build
+```
+
+#### Start prod server
+
+```bash
+$ npm run start
 ```
 

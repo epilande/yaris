@@ -1,0 +1,4 @@
+exports[`<Container /> should render a Container 1`] = `
+<div
+  className="sc-bdVaJa kplsxE" />
+`;

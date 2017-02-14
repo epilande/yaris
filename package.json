@@ -1,6 +1,6 @@
 {
   "name": "yaris",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Yet Another React Isomorphic Universal Starter",
   "main": "server/index.js",
   "scripts": {

@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint \"./src/**/*.js\"",
+    "lint:js": "eslint \"./src/**/*.js\" \"./server/**/*.js\"",
     "lint:css": "stylelint \"./src/**/*.js\"",
     "clean": "rimraf public",
     "dev": "BABEL_ENV=node NODE_ENV=development node server/index.js",

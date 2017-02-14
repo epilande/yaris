@@ -37,8 +37,12 @@ const renderFullPage = (html, initialState) => {
           window.webpackManifest = ${JSON.stringify(chunkManifest)};
           //]]>` : ''}
         </script>
-        <script src='${manifest ? manifest['/vendor.js'] : '/vendor.js'}'></script>
-        <script src='${manifest ? manifest['/app.js'] : '/app.js'}'></script>
+        ${manifest ? `
+          <script src='${manifest['/vendor.js']}'></script>
+          <script src='${manifest['/app.js']}'></script>
+          ` : `
+          <script src="/app.js"></script>
+        `}
       </body>
     </html>
   `;

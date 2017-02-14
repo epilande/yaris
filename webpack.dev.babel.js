@@ -5,17 +5,11 @@ const baseConfig = require('./webpack.base.babel');
 const config = merge(baseConfig, {
   devtool: 'eval',
 
-  entry: {
-    app: [
-      'webpack-hot-middleware/client?reload=true',
-      'webpack/hot/only-dev-server',
-      './src/index',
-    ],
-    vendor: [
-      'react',
-      'react-dom',
-    ],
-  },
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    'webpack/hot/only-dev-server',
+    './src/index',
+  ],
 
   output: {
     publicPath: 'http://0.0.0.0:3000/',
@@ -25,11 +19,6 @@ const config = merge(baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'vendor.js',
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         CLIENT: JSON.stringify(true),

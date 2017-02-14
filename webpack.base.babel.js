@@ -27,7 +27,6 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'app.js',
   },
   resolve: {
     modules: [

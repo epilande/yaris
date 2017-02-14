@@ -19,6 +19,7 @@ const config = merge(baseConfig, {
 
   output: {
     publicPath: 'http://0.0.0.0:3000/',
+    filename: 'app.js',
   },
 
   plugins: [

@@ -8,6 +8,11 @@ import theme from '../src/styles/theme';
 import configureStore from '../src/store';
 import routes from '../src/routes';
 
+const manifest = process.env.NODE_ENV === 'production' ?
+  require('../public/manifest.json') : null;
+const chunkManifest = process.env.NODE_ENV === 'production' ?
+  require('../public/chunk-manifest.json') : null;
+
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
@@ -27,9 +32,13 @@ const renderFullPage = (html, initialState) => {
       <div id="root"><div>${html}</div></div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+          ${chunkManifest ?
+          `//<![CDATA[
+          window.webpackManifest = ${JSON.stringify(chunkManifest)};
+          //]]>` : ''}
         </script>
-        <script src="/vendor.js"></script>
-        <script src="/app.js"></script>
+        <script src='${manifest ? manifest['/vendor.js'] : '/vendor.js'}'></script>
+        <script src='${manifest ? manifest['/app.js'] : '/app.js'}'></script>
       </body>
     </html>
   `;

@@ -49,6 +49,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.22.0",
+    "chunk-manifest-webpack-plugin": "^1.0.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -66,6 +67,7 @@
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
+    "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^2.6.1",
     "webpack-node-externals": "^1.5.4"
   }

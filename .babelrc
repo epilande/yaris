@@ -7,6 +7,11 @@
     "development": {
       "presets": ["react-hmre"],
       "plugins": ["styled-components"]
+    },
+    "test": {
+      "plugins": [
+        ["transform-es2015-modules-commonjs"]
+      ]
     }
   }
 }

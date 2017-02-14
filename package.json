@@ -14,7 +14,9 @@
     "build:prod": "NODE_ENV=production webpack --progress --colors --config webpack.prod.babel.js",
     "build:server": "NODE_ENV=production webpack --progress --colors --config webpack.server.babel.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build:storybook": "build-storybook -c .storybook"
+    "build:storybook": "build-storybook -c .storybook",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "engines": {
     "node": ">= 6.x",
@@ -41,6 +43,7 @@
     "@kadira/storybook": "^2.35.3",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-styled-components": "^1.0.0",
     "babel-polyfill": "^6.22.0",
@@ -51,6 +54,8 @@
     "babel-register": "^6.22.0",
     "chunk-manifest-webpack-plugin": "^1.0.0",
     "css-loader": "^0.26.1",
+    "enzyme": "^2.7.1",
+    "enzyme-to-json": "^1.4.5",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -58,6 +63,8 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "file-loader": "^0.10.0",
+    "jest": "^18.1.0",
+    "react-addons-test-utils": "^15.4.2",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "stylelint": "^7.8.0",
@@ -70,5 +77,10 @@
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^2.6.1",
     "webpack-node-externals": "^1.5.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   }
 }

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const baseConfig = require('./webpack.base.babel');
 
 const config = merge(baseConfig, {
@@ -49,6 +50,10 @@ const config = merge(baseConfig, {
     new ChunkManifestPlugin({
       filename: 'chunk-manifest.json',
       manifestVariable: 'webpackManifest',
+    }),
+    new OfflinePlugin({
+      relativePaths: false,
+      publicPath: '/',
     }),
   ],
 });

@@ -1,3 +1,17 @@
 {
-  "presets": ["react", "es2015", "stage-0"]
+  "presets": [["es2015", { "modules": false }], "stage-0", "react"],
+  "env": {
+    "node": {
+      "presets": ["es2015", "stage-0", "react"]
+    },
+    "development": {
+      "presets": ["react-hmre"],
+      "plugins": ["styled-components"]
+    },
+    "test": {
+      "plugins": [
+        ["transform-es2015-modules-commonjs"]
+      ]
+    }
+  }
 }

@@ -1,7 +1,0 @@
-.color {
-  color: orange;
-}
-
-.base {
-  composes: color;
-}

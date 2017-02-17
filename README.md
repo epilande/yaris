@@ -1,7 +1,10 @@
 # YARIS
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/epilande/yaris.svg)](https://greenkeeper.io/)
 **Yet Another React ~~Isomorphic~~ Universal Starter**
+
+[![Build Status](https://travis-ci.org/epilande/yaris.svg?branch=master)](https://travis-ci.org/epilande/yaris)
+[![codecov](https://codecov.io/gh/epilande/yaris/branch/master/graph/badge.svg)](https://codecov.io/gh/epilande/yaris)
+[![Greenkeeper badge](https://badges.greenkeeper.io/epilande/yaris.svg)](https://greenkeeper.io/)
+[![dependencies Status](https://david-dm.org/epilande/yaris/status.svg)](https://david-dm.org/epilande/yaris)
 
 If you don't want Universal JavaScript, check out my other boilerplate **[YARS](https://github.com/epilande/yars)**.
 

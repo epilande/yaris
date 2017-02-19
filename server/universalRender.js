@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import Helmet from 'react-helmet';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, styleSheet } from 'styled-components';
 import theme from '../src/styles/theme';
 import configureStore from '../src/store';
 import routes from '../src/routes';
@@ -16,6 +16,7 @@ const chunkManifest = process.env.NODE_ENV === 'production' ?
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
+  const css = styleSheet.getCSS();
 
   return `
     <!DOCTYPE html>
@@ -27,6 +28,9 @@ const renderFullPage = (html, initialState) => {
         ${head.link.toString()}
         ${head.script.toString()}
         <link rel="shortcut icon" href="/favicon.ico" />
+        <style>
+          ${css}
+        </style>
       </head>
       <body>
       <div id="root"><div>${html}</div></div>

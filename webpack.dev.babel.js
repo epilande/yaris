@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.babel');
 
+const PORT = process.env.PORT || 3000;
+
 const config = merge(baseConfig, {
   devtool: 'eval',
 
@@ -12,7 +14,7 @@ const config = merge(baseConfig, {
   ],
 
   output: {
-    publicPath: 'http://0.0.0.0:3000/',
+    publicPath: `http://0.0.0.0:${PORT}/`,
     filename: 'app.js',
   },
 

@@ -1,3 +1,4 @@
+/* eslint-disable block-scoped-var, no-console */
 import App from './containers/App';
 
 /* eslint-disable */
@@ -9,7 +10,7 @@ if (typeof System === 'undefined') {
 /* eslint-enable */
 
 function errorLoading(err) {
-  console.log('Page failed to load. ', err); // eslint-disable-line
+  console.log('Page failed to load. ', err);
 }
 
 function loadRoute(cb) {
@@ -24,7 +25,7 @@ export default {
     {
       path: 'todo',
       getComponent(location, cb) {
-        System.import('./containers/Todo') // eslint-disable-line
+        System.import('./containers/Todo')
           .then(loadRoute(cb))
           .catch(errorLoading);
       },
@@ -32,7 +33,7 @@ export default {
     {
       path: 'counter',
       getComponent(location, cb) {
-        System.import('./containers/Counter') // eslint-disable-line
+        System.import('./containers/Counter')
           .then(loadRoute(cb))
           .catch(errorLoading);
       },
@@ -40,7 +41,7 @@ export default {
     {
       path: '*',
       getComponent(location, cb) {
-        System.import('./containers/NotFound') // eslint-disable-line
+        System.import('./containers/NotFound')
           .then(loadRoute(cb))
           .catch(errorLoading);
       },

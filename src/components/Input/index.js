@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 
 const Input = styled.input`
   width: 100%;
@@ -13,5 +14,11 @@ const Input = styled.input`
     border-color: ${props => props.theme.colors.primary};
   }
 `;
+
+Input.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default Input;

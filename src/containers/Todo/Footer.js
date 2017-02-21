@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 
 const Footer = styled.footer`
   display: flex;
@@ -8,5 +9,11 @@ const Footer = styled.footer`
     border-bottom: 1px solid ${props => props.theme.colors.primary};
   }
 `;
+
+Footer.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default Footer;

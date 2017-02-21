@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 
 const Nav = styled.nav`
   ul {
@@ -16,5 +17,11 @@ const Nav = styled.nav`
     border-bottom: 1px solid ${props => props.theme.colors.primary};
   }
 `;
+
+Nav.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default Nav;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 import { hexToRgba } from '../../styles/utils/color';
 import { ripple, pulse } from '../../styles/utils/animation';
 import CircleButton from './CircleButton';
@@ -23,5 +24,11 @@ const Animating = styled.div`
     }
   }
 `;
+
+Animating.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default Animating;

@@ -8,6 +8,7 @@ const config = merge(baseConfig, {
   devtool: 'eval',
 
   entry: [
+    'babel-polyfill',
     'webpack-hot-middleware/client?reload=true',
     'webpack/hot/only-dev-server',
     './src/index',

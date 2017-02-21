@@ -9,6 +9,7 @@ const config = merge(baseConfig, {
 
   entry: {
     app: [
+      'babel-polyfill',
       './src/index',
     ],
     vendor: [

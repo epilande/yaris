@@ -15,6 +15,7 @@ const app = new Express();
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
+  require.extensions['.svg'] = () => {};
   const compiler = webpack(webpackConfig);
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,

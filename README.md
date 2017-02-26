@@ -60,3 +60,32 @@ $ npm run dev
 |`test:watch`|Same as `npm run test`, but watches for changes to re-run tests.|
 |`storybook`|Starts `react-storybook` on `localhost:9001`.|
 
+
+## Structure
+**Feature-first** approach, all of the related files are in one place.
+
+```
+src/
+├── components/                  // Shared or generic UI components
+│   ├── A/
+│   ├── Button/
+│   │   ├── test/
+│   │   │   ├── index.test.js    // Tests for component
+│   │   ├── index.js             // The actual Button component
+│   │   ├── index.stories.js     // This gets picked up by react-storybook
+│   ├── Footer/
+│   └── ...
+├── containers/
+│   └── FeaturePage/
+│      ├── components/           // All FeaturePage specific components live here
+│      │   ├── List/
+│      │   ├── ListItem/
+│      │   ├── ListItemTitle/
+│      │   │  └── index.js
+│      │   └── ...
+│      ├── actions.js
+│      ├── constants.js
+│      ├── index.js
+│      ├── reducer.js
+│      └── ...
+```

@@ -8,6 +8,7 @@
 
 If you don't want Universal JavaScript, check out my other boilerplate **[YARS](https://github.com/epilande/yars)**.
 
+
 ## Features
 - [X] Server-Side Rendering
 - [X] Webpack v2
@@ -23,6 +24,7 @@ If you don't want Universal JavaScript, check out my other boilerplate **[YARS](
 - [X] Stylelint
 - [X] NPM Scripts
 
+
 ## Quick Start
 
 #### Clone this repo
@@ -35,7 +37,7 @@ $ cd yaris
 #### Install dependencies
 
 ```bash
-$ npm install
+$ npm install # or yarn
 ```
 
 #### Launch dev environment
@@ -44,15 +46,17 @@ $ npm install
 $ npm run dev
 ```
 
-#### Build prod
 
-```bash
-$ npm run build
-```
-
-#### Start prod server
-
-```bash
-$ npm run start
-```
+## Available Commands
+|`npm run <script>`|Description|
+|------------------|-----------|
+|`dev`|Starts app on `localhost:3000` in development mode with HMR enabled.|
+|`start`|Starts `./public/server.js`, which has production bundles.|
+|`build`|Runs `build:prod` & `build:server` to create production bundles.|
+|`build:prod`|Creates **client** bundle with production environment.|
+|`build:server`|Creates **server** bundle with production environment.|
+|`lint`|Lints `./src/**/*.js` & `./server/**/*.js` with eslint & stylelint.|
+|`test`|Runs unit tests with Jest & generates coverage report.|
+|`test:watch`|Same as `npm run test`, but watches for changes to re-run tests.|
+|`storybook`|Starts `react-storybook` on `localhost:9001`.|
 

@@ -12,6 +12,7 @@ describe('<Container />', () => {
   });
 
   it('should render a Container', () => {
+    expect(component).toHaveLength(1);
     expect(component).toMatchSnapshot();
   });
 

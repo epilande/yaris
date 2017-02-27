@@ -1,4 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Container /> should render a Container 1`] = `
 <div
-  className="sc-bdVaJa kplsxE" />
+  className="sc-bdVaJa kplsxE"
+/>
 `;

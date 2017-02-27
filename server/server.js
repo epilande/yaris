@@ -8,11 +8,14 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.dev.babel';
 import universalRender from './universalRender';
 
+const PORT = process.env.PORT || 3000;
+
 // Initialize the Express App
 const app = new Express();
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
+  require.extensions['.svg'] = () => {};
   const compiler = webpack(webpackConfig);
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
@@ -34,9 +37,9 @@ app.use(Express.static(path.resolve(__dirname, '../public')));
 app.use(universalRender);
 
 // start app
-app.listen(3000, (error) => {
+app.listen(PORT, (error) => {
   if (!error) {
-    console.log(`YARIS is running on port: 3000!`); // eslint-disable-line
+    console.log(`YARIS started on => http://localhost:${PORT}`); // eslint-disable-line
   }
 });
 

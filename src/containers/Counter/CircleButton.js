@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 
 const CircleButton = styled.button`
   position: relative;
@@ -28,5 +29,11 @@ const CircleButton = styled.button`
     transform: translate(-50%, -50%) scale(0.5);
   }
 `;
+
+CircleButton.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default CircleButton;

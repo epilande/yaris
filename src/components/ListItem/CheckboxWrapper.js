@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 import { hexToRgba } from '../../styles/utils/color';
 
 const CheckboxWrapper = styled.div`
@@ -27,5 +28,11 @@ const CheckboxWrapper = styled.div`
     cursor: pointer;
   }
 `;
+
+CheckboxWrapper.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default CheckboxWrapper;

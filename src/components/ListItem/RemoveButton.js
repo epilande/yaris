@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 
 const RemoveButton = styled.button`
   opacity: 0;
@@ -11,5 +12,11 @@ const RemoveButton = styled.button`
     font-weight: 600;
   }
 `;
+
+RemoveButton.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default RemoveButton;

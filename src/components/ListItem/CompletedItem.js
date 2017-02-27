@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 import { hexToRgba } from '../../styles/utils/color';
 import RemoveButton from './RemoveButton';
 import DisplayText from './DisplayText';
@@ -29,5 +30,11 @@ const CompletedItem = styled.div`
     }
   }
 `;
+
+CompletedItem.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default CompletedItem;

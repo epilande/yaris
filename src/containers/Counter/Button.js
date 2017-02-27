@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/theme';
 import { hexToRgba } from '../../styles/utils/color';
 
 const Button = styled.button`
@@ -13,5 +14,11 @@ const Button = styled.button`
     background: ${props => hexToRgba(props.theme.colors.primary, 0.1)};
   }
 `;
+
+Button.defaultProps = {
+  theme: {
+    colors,
+  },
+};
 
 export default Button;

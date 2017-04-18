@@ -85,11 +85,7 @@ class Todo extends Component {
         />
         <Footer>
           <p>{count}</p>
-          {
-            completedCount
-              ? <button onClick={this.onClearCompleted}>Clear Completed</button>
-              : ''
-          }
+          {completedCount ? <button onClick={this.onClearCompleted}>Clear Completed</button> : ''}
         </Footer>
       </Container>
     );

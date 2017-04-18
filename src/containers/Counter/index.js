@@ -55,14 +55,13 @@ class Counter extends Component {
 
     return (
       <Wrapper center>
-        <CircleButton
-          onClick={this.increment}
-          onMouseUp={this.animationDone}
-        >
+        <CircleButton onClick={this.increment} onMouseUp={this.animationDone}>
           <span>{counter}</span>
         </CircleButton>
         <div>
-          <Button onClick={this.increment} onMouseUp={this.animationDone}> + </Button>
+          <Button onClick={this.increment} onMouseUp={this.animationDone}>
+            {' '}+{' '}
+          </Button>
           <Button onClick={this.decrement}> – </Button>
           <Button onClick={this.incrementIfOdd}> odd </Button>
           <Button onClick={this.incrementAsync}> async </Button>

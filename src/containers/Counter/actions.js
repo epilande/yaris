@@ -1,7 +1,4 @@
-import {
-  INCREMENT_COUNTER,
-  DECREMENT_COUNTER,
-} from './constants';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './constants';
 
 export function increment() {
   return {
@@ -28,7 +25,7 @@ export function incrementIfOdd() {
 }
 
 export function incrementAsync(delay = 3000) {
-  return (dispatch) => {
+  return dispatch => {
     setTimeout(() => {
       dispatch(increment());
     }, delay);

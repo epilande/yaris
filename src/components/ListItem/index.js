@@ -81,13 +81,8 @@ class ListItem extends Component {
     let checkBox;
     if (onComplete) {
       checkBox = (
-        <CheckboxWrapper
-          onClick={this.onCheck}
-        >
-          <input
-            defaultChecked={item.completed}
-            type="checkbox"
-          />
+        <CheckboxWrapper onClick={this.onCheck}>
+          <input defaultChecked={item.completed} type="checkbox" />
         </CheckboxWrapper>
       );
     }

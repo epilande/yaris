@@ -7,5 +7,4 @@ const InputText = styled.input`
   letter-spacing: normal;
 `;
 
-
 export default InputText;

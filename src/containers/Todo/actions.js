@@ -1,10 +1,4 @@
-import {
-  ADD_ITEM,
-  REMOVE_ITEM,
-  EDIT_ITEM,
-  COMPLETE_ITEM,
-  CLEAR_COMPLETED,
-} from './constants';
+import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, COMPLETE_ITEM, CLEAR_COMPLETED } from './constants';
 
 export function addItem(item) {
   return { type: ADD_ITEM, item };

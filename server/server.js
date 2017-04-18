@@ -17,13 +17,15 @@ const app = new Express();
 if (process.env.NODE_ENV === 'development') {
   require.extensions['.svg'] = () => {};
   const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath,
-    stats: {
-      colors: true,
-    },
-  }));
+  app.use(
+    webpackDevMiddleware(compiler, {
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath,
+      stats: {
+        colors: true,
+      },
+    }),
+  );
   app.use(webpackHotMiddleware(compiler));
 }
 
@@ -37,7 +39,7 @@ app.use(Express.static(path.resolve(__dirname, '../public')));
 app.use(universalRender);
 
 // start app
-app.listen(PORT, (error) => {
+app.listen(PORT, error => {
   if (!error) {
     console.log(`YARIS started on => http://localhost:${PORT}`); // eslint-disable-line
   }

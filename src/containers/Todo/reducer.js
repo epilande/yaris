@@ -1,10 +1,4 @@
-import {
-  ADD_ITEM,
-  REMOVE_ITEM,
-  EDIT_ITEM,
-  COMPLETE_ITEM,
-  CLEAR_COMPLETED,
-} from './constants';
+import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, COMPLETE_ITEM, CLEAR_COMPLETED } from './constants';
 
 const initialState = {
   items: [],
@@ -28,20 +22,14 @@ export default function reducer(state = initialState, action = {}) {
       };
     case EDIT_ITEM:
       return {
-        items: state.items.map(item => (
-          item.id === action.item.id
-            ? { ...item, text: action.item.text }
-            : item
-          ),
+        items: state.items.map(
+          item => (item.id === action.item.id ? { ...item, text: action.item.text } : item),
         ),
       };
     case COMPLETE_ITEM:
       return {
-        items: state.items.map(item => (
-          item.id === action.item.id
-            ? { ...item, completed: !item.completed }
-            : item
-          ),
+        items: state.items.map(
+          item => (item.id === action.item.id ? { ...item, completed: !item.completed } : item),
         ),
       };
     case CLEAR_COMPLETED:

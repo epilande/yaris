@@ -6,9 +6,7 @@ describe('<Container />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(
-      <Container />,
-    );
+    component = shallow(<Container />);
   });
 
   it('should render a Container', () => {

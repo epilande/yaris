@@ -10,7 +10,9 @@ const middleware = [thunk, router];
 
 const enhancers = compose(
   applyMiddleware(...middleware),
-  process.env.CLIENT && process.env.NODE_ENV !== 'production' && window.devToolsExtension
+  process.env.CLIENT &&
+    process.env.NODE_ENV !== 'production' &&
+    window.devToolsExtension
     ? window.devToolsExtension()
     : f => f,
 );

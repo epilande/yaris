@@ -25,19 +25,25 @@ export default {
     {
       path: 'todo',
       getComponent(location, cb) {
-        System.import('./containers/Todo').then(loadRoute(cb)).catch(errorLoading);
+        System.import('./containers/Todo')
+          .then(loadRoute(cb))
+          .catch(errorLoading);
       },
     },
     {
       path: 'counter',
       getComponent(location, cb) {
-        System.import('./containers/Counter').then(loadRoute(cb)).catch(errorLoading);
+        System.import('./containers/Counter')
+          .then(loadRoute(cb))
+          .catch(errorLoading);
       },
     },
     {
       path: '*',
       getComponent(location, cb) {
-        System.import('./containers/NotFound').then(loadRoute(cb)).catch(errorLoading);
+        System.import('./containers/NotFound')
+          .then(loadRoute(cb))
+          .catch(errorLoading);
       },
     },
   ],

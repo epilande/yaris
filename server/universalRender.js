@@ -8,9 +8,11 @@ import theme from '../src/styles/theme';
 import configureStore from '../src/store';
 import routes from '../src/routes';
 
-const manifest = process.env.NODE_ENV === 'production' ? require('../public/manifest.json') : null;
+const manifest = process.env.NODE_ENV === 'production'
+  ? require('../public/manifest.json') // eslint-disable-line
+  : null;
 const chunkManifest = process.env.NODE_ENV === 'production'
-  ? require('../public/chunk-manifest.json')
+  ? require('../public/chunk-manifest.json') // eslint-disable-line
   : null;
 
 // Render Initial HTML
@@ -67,7 +69,10 @@ const universalRender = (req, res, next) => {
     }
 
     if (redirectLocation) {
-      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      return res.redirect(
+        302,
+        redirectLocation.pathname + redirectLocation.search,
+      );
     }
 
     if (!renderProps) {

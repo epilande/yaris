@@ -17,7 +17,7 @@
     "build:storybook": "build-storybook -c .storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prettier": "prettier --write --single-quote --jsx-bracket-same-line --trailing-comma all --print-width 80 \"./src/**/*.js\" \"./server/**/*.js\""
+    "prettier": "prettier --write --single-quote --trailing-comma all --print-width 80 \"./src/**/*.js\" \"./server/**/*.js\""
   },
   "engines": {
     "node": ">= 6.x",

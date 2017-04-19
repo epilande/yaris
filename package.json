@@ -16,7 +16,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build:storybook": "build-storybook -c .storybook",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prettier": "prettier --write --single-quote --trailing-comma all --print-width 80 \"./src/**/*.js\" \"./server/**/*.js\""
   },
   "engines": {
     "node": ">= 6.x",
@@ -65,6 +66,7 @@
     "eslint-plugin-react": "^6.10.0",
     "file-loader": "^0.11.1",
     "jest": "^19.0.2",
+    "prettier": "^1.1.0",
     "react-addons-test-utils": "^15.4.2",
     "rimraf": "^2.6.1",
     "style-loader": "^0.16.1",

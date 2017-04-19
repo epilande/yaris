@@ -17,7 +17,10 @@ export default function reducer(state = initialState, action = {}) {
         items: [
           ...state.items,
           {
-            id: state.items.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1,
+            id: state.items.reduce(
+              (maxId, item) => Math.max(item.id, maxId),
+              -1,
+            ) + 1,
             text: action.item,
           },
         ],
@@ -28,20 +31,20 @@ export default function reducer(state = initialState, action = {}) {
       };
     case EDIT_ITEM:
       return {
-        items: state.items.map(item => (
-          item.id === action.item.id
-            ? { ...item, text: action.item.text }
-            : item
-          ),
+        items: state.items.map(
+          item =>
+            (item.id === action.item.id
+              ? { ...item, text: action.item.text }
+              : item),
         ),
       };
     case COMPLETE_ITEM:
       return {
-        items: state.items.map(item => (
-          item.id === action.item.id
-            ? { ...item, completed: !item.completed }
-            : item
-          ),
+        items: state.items.map(
+          item =>
+            (item.id === action.item.id
+              ? { ...item, completed: !item.completed }
+              : item),
         ),
       };
     case CLEAR_COMPLETED:

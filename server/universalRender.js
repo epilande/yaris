@@ -8,10 +8,12 @@ import theme from '../src/styles/theme';
 import configureStore from '../src/store';
 import routes from '../src/routes';
 
-const manifest = process.env.NODE_ENV === 'production' ?
-  require('../public/manifest.json') : null;
-const chunkManifest = process.env.NODE_ENV === 'production' ?
-  require('../public/chunk-manifest.json') : null;
+const manifest = process.env.NODE_ENV === 'production'
+  ? require('../public/manifest.json') // eslint-disable-line
+  : null;
+const chunkManifest = process.env.NODE_ENV === 'production'
+  ? require('../public/chunk-manifest.json') // eslint-disable-line
+  : null;
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -36,8 +38,7 @@ const renderFullPage = (html, initialState) => {
       <div id="root"><div>${html}</div></div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
-          ${chunkManifest ?
-          `//<![CDATA[
+          ${chunkManifest ? `//<![CDATA[
           window.webpackManifest = ${JSON.stringify(chunkManifest)};
           //]]>` : ''}
         </script>
@@ -52,10 +53,11 @@ const renderFullPage = (html, initialState) => {
   `;
 };
 
-const renderError = (err) => {
+const renderError = err => {
   const softTab = '&#32;&#32;&#32;&#32;';
-  const errTrace = process.env.NODE_ENV !== 'production' ?
-    `:<br><br><pre style="color:red">${softTab}${err.stack.replace(/\n/g, `<br>${softTab}`)}</pre>` : '';
+  const errTrace = process.env.NODE_ENV !== 'production'
+    ? `:<br><br><pre style="color:red">${softTab}${err.stack.replace(/\n/g, `<br>${softTab}`)}</pre>`
+    : '';
   return renderFullPage(`Server Error${errTrace}`, {});
 };
 
@@ -67,7 +69,10 @@ const universalRender = (req, res, next) => {
     }
 
     if (redirectLocation) {
-      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      return res.redirect(
+        302,
+        redirectLocation.pathname + redirectLocation.search,
+      );
     }
 
     if (!renderProps) {
@@ -84,7 +89,8 @@ const universalRender = (req, res, next) => {
       </Provider>,
     );
 
-    return res.set('Content-Type', 'text/html')
+    return res
+      .set('Content-Type', 'text/html')
       .status(200)
       .end(renderFullPage(initialView, store.getState()));
   });

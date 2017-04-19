@@ -4,20 +4,19 @@ import Ul from './Ul';
 
 const List = ({ items, onRemove, onEdit, onComplete }) => (
   <Ul>
-    {items.map(item =>
+    {items.map(item => (
       <ListItem
         key={item.id}
         item={item}
         onRemove={onRemove}
         onEdit={onEdit}
         onComplete={onComplete}
-      />,
-    )}
+      />
+    ))}
   </Ul>
 );
 
-List.defaultProps = {
-};
+List.defaultProps = {};
 
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,

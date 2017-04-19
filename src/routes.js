@@ -4,7 +4,7 @@ import App from './containers/App';
 /* eslint-disable */
 if (typeof System === 'undefined') {
   var System = {
-    import: path => (Promise.resolve(require(path))),
+    import: path => Promise.resolve(require(path)),
   };
 }
 /* eslint-enable */

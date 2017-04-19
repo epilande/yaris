@@ -5,7 +5,13 @@ import List from '../../components/List';
 import Input from '../../components/Input';
 import InputContainer from './InputContainer';
 import Footer from './Footer';
-import { addItem, removeItem, editItem, completeItem, clearCompleted } from './actions';
+import {
+  addItem,
+  removeItem,
+  editItem,
+  completeItem,
+  clearCompleted,
+} from './actions';
 
 class Todo extends Component {
   static propTypes = {
@@ -65,7 +71,10 @@ class Todo extends Component {
       count = `${count} ${count > 1 ? 'items' : 'item'}`;
     }
 
-    const completedCount = items.reduce((total, item) => (item.completed ? total + 1 : total), 0);
+    const completedCount = items.reduce(
+      (total, item) => (item.completed ? total + 1 : total),
+      0,
+    );
 
     return (
       <Container>
@@ -85,11 +94,9 @@ class Todo extends Component {
         />
         <Footer>
           <p>{count}</p>
-          {
-            completedCount
-              ? <button onClick={this.onClearCompleted}>Clear Completed</button>
-              : ''
-          }
+          {completedCount
+            ? <button onClick={this.onClearCompleted}>Clear Completed</button>
+            : ''}
         </Footer>
       </Container>
     );

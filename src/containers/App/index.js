@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Container from '../../components/Container';
 import Counter from '../Counter';
@@ -32,14 +32,14 @@ const App = () =>
     <Nav>
       <ul>
         <li>
-          <Link to="/todo" activeClassName="active">
+          <NavLink to="/todo" activeClassName="active">
             Todo
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/counter" activeClassName="active">
+          <NavLink to="/counter" activeClassName="active">
             Counter
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </Nav>

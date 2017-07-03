@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Container from '../../components/Container';
+import Counter from '../Counter';
+import Todo from '../Todo';
+import NotFound from '../NotFound';
 import Header from './Header';
 import Nav from './Nav';
 import Example from './Example';
 
-const App = ({ children }) => (
+const App = () =>
   <Container>
     <Helmet
       title="Yet Another React Isomorphic Starter"
@@ -28,18 +31,28 @@ const App = ({ children }) => (
     </Header>
     <Nav>
       <ul>
-        <li><Link to="/todo" activeClassName="active">Todo</Link></li>
-        <li><Link to="/counter" activeClassName="active">Counter</Link></li>
+        <li>
+          <Link to="/todo" activeClassName="active">
+            Todo
+          </Link>
+        </li>
+        <li>
+          <Link to="/counter" activeClassName="active">
+            Counter
+          </Link>
+        </li>
       </ul>
     </Nav>
     <Example>
-      {children}
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/todo" />} />
+        <Route path="/todo" component={Todo} />
+        <Route path="/counter" component={Counter} />
+        <Route component={NotFound} />
+      </Switch>
     </Example>
-  </Container>
-);
+  </Container>;
 
-App.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+App.propTypes = {};
 
 export default App;

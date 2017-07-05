@@ -37,7 +37,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
-    "styled-components": "^2.0.0-4"
+    "styled-components": "^2.1.1"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
@@ -57,7 +57,7 @@
     "css-loader": "^0.28.0",
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.5.0",
-    "eslint": "^4.1.1",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",

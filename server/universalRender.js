@@ -58,18 +58,6 @@ const renderFullPage = (html, initialState) => {
   `;
 };
 
-const renderError = err => {
-  const softTab = '&#32;&#32;&#32;&#32;';
-  const errTrace =
-    process.env.NODE_ENV !== 'production'
-      ? `:<br><br><pre style="color:red">${softTab}${err.stack.replace(
-          /\n/g,
-          `<br>${softTab}`,
-        )}</pre>`
-      : '';
-  return renderFullPage(`Server Error${errTrace}`, {});
-};
-
 // Server Side Rendering based on routes matched by React-router.
 const universalRender = (req, res) => {
   const location = req.url;
@@ -77,25 +65,25 @@ const universalRender = (req, res) => {
 
   if (context.url) {
     return res.redirect(302, context.url);
-  } else {
-    const store = configureStore();
-    const initialState = store.getState();
-
-    const initialView = renderToString(
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <StaticRouter location={location} context={context}>
-            <App />
-          </StaticRouter>
-        </ThemeProvider>
-      </Provider>,
-    );
-
-    return res
-      .set('Content-Type', 'text/html')
-      .status(200)
-      .end(renderFullPage(initialView, initialState));
   }
+
+  const store = configureStore();
+  const initialState = store.getState();
+
+  const initialView = renderToString(
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <StaticRouter location={location} context={context}>
+          <App />
+        </StaticRouter>
+      </ThemeProvider>
+    </Provider>,
+  );
+
+  return res
+    .set('Content-Type', 'text/html')
+    .status(200)
+    .end(renderFullPage(initialView, initialState));
 };
 
 export default universalRender;

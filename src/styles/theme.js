@@ -12,7 +12,15 @@ export const fonts = {
   base: '"Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif',
 };
 
+export const sizes = {
+  xlarge: 1280,
+  large: 1024,
+  medium: 768,
+  small: 568,
+};
+
 export default {
   colors,
   fonts,
+  sizes,
 };

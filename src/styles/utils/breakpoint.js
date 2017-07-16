@@ -1,11 +1,5 @@
 import { css } from 'styled-components';
-
-const sizes = {
-  xlarge: 1280,
-  large: 1024,
-  medium: 768,
-  small: 568,
-};
+import { sizes } from '../theme';
 
 export const media = Object.keys(sizes).reduce((acc, label) => {
   const accumulator = acc;

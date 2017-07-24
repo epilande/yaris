@@ -17,7 +17,8 @@
     "build:storybook": "build-storybook -c .storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prettier": "prettier --write --single-quote --trailing-comma all --print-width 80 \"./src/**/*.js\" \"./server/**/*.js\""
+    "format": "prettier --write --single-quote --trailing-comma all --print-width 80 \"./src/**/*.js\" \"./server/**/*.js\"",
+    "precommit": "lint-staged"
   },
   "engines": {
     "node": ">= 6.x",
@@ -64,8 +65,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0",
     "file-loader": "^0.11.1",
+    "husky": "^0.14.2",
     "jest": "^20.0.4",
-    "prettier": "^1.1.0",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.5.3",
     "react-addons-test-utils": "^15.4.2",
     "rimraf": "^2.6.1",
     "style-loader": "^0.18.2",
@@ -86,5 +89,11 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --trailing-comma all --print-width 80",
+      "git add"
+    ]
   }
 }
